@@ -64,12 +64,13 @@ number = input(""" 맛있는 메뉴를 추천해드리겠습니다. 드시려는
 foods_num = int(number) - 1
 while True :
     ans_ok = ''
-    random.shuffle(foods_data[foods_num])
+    if number != '6' :
+        random.shuffle(foods_data[foods_num])
 
-    if number == 1:
+    if number == '1':
         print("entered 1")
         #entered def
-        input("한식을 드시고 싶으시군요!")
+        print("한식을 드시고 싶으시군요!")
         #input("한식을 드시고 싶으시군요! {한식메뉴중 랜덤한개} 는 어떠세요? 메뉴가 마음에 들면 1을, 아니면 2를 입력해주세요.")
         for i in range(len(foods_data[foods_num])) :
             ans_ok = input("{} 는 어떠세요? 메뉴가 마음에 들면 1을, 아니면 2를 입력해주세요.".format(foods_data[foods_num][i]))
@@ -80,21 +81,65 @@ while True :
                 continue
 
 
-    if number == 2:
+    if number == '2':
         print("entered 2")
         #input("중식을 드시고 싶으시군요! ~~~~~~~~한식이랑 흐름 똑같이 블라블라")
+        print("일식을 드시고 싶으시군요!")
+        for i in range(len(foods_data[foods_num])) :
+            ans_ok = input("{} 는 어떠세요? 메뉴가 마음에 들면 1을, 아니면 2를 입력해주세요.".format(foods_data[foods_num][i]))
+            if ans_ok == '1' :
+                print("메뉴가 마음에 드셨다니 다행이네요. 맛있게 드시고, 기회가 된다면 다음에 또 만나요!")
+                break
+            elif ans_ok == '2' :
+                continue
 
 
-    if number == 3:
+    if number == '3':
         print("entered 3")
+        print("중식을 드시고 싶으시군요!")
+        for i in range(len(foods_data[foods_num])) :
+            ans_ok = input("{} 는 어떠세요? 메뉴가 마음에 들면 1을, 아니면 2를 입력해주세요.".format(foods_data[foods_num][i]))
+            if ans_ok == '1' :
+                print("메뉴가 마음에 드셨다니 다행이네요. 맛있게 드시고, 기회가 된다면 다음에 또 만나요!")
+                break
+            elif ans_ok == '2' :
+                continue
 
 
-    if number == 4:
+    if number == '4':
         print("entered 4")
+        print("양식을 드시고 싶으시군요!")
+        for i in range(len(foods_data[foods_num])) :
+            ans_ok = input("{} 는 어떠세요? 메뉴가 마음에 들면 1을, 아니면 2를 입력해주세요.".format(foods_data[foods_num][i]))
+            if ans_ok == '1' :
+                print("메뉴가 마음에 드셨다니 다행이네요. 맛있게 드시고, 기회가 된다면 다음에 또 만나요!")
+                break
+            elif ans_ok == '2' :
+                continue
         
 
-    if number == 5:
+    if number == '5':
         print("entered 5")
+        print("분식을 드시고 싶으시군요!")
+        for i in range(len(foods_data[foods_num])) :
+            ans_ok = input("{} 는 어떠세요? 메뉴가 마음에 들면 1을, 아니면 2를 입력해주세요.".format(foods_data[foods_num][i]))
+            if ans_ok == '1' :
+                print("메뉴가 마음에 드셨다니 다행이네요. 맛있게 드시고, 기회가 된다면 다음에 또 만나요!")
+                break
+            elif ans_ok == '2' :
+                continue
+
+    if number == '6' :
+        print('entered 6')
+        print("메뉴를 추천받고 싶으시군요!")
+        country = int(random.randrange(len(foods_data)))
+        food = int(random.randrange(len(foods_data[country])))
+        ans_ok = input("{} 는 어떠세요? 메뉴가 마음에 들면 1을, 아니면 2를 입력해주세요.".format(foods_data[country][food]))
+        if ans_ok == '1' :
+            print("메뉴가 마음에 드셨다니 다행이네요. 맛있게 드시고, 기회가 된다면 다음에 또 만나요!")
+            break
+        elif ans_ok == '2' :
+            continue
 
     if ans_ok == '1' :
         break
