@@ -1,14 +1,7 @@
 import threading
 import random
 
-
-
-
 def tiiimer(n):
-    
-    print("n : ",n)
-    print("now :",now)
-
     while n != now:
         n = n-1
         time.sleep(0.01)
@@ -48,7 +41,7 @@ def tiiimer(n):
             listsay = ["일어나세요", "빨리 일어나세요", "good", "...", "화이팅!!!"]
             print(random.choice(listsay))
             
-    
+    return
 
 def ttttt():
 
@@ -61,24 +54,21 @@ def ttttt():
     chang.option_add("*Font", "맑은고딕 100")
     chang['bg'] = '#ff6f61'
 
-    enter = tkinter.Entry(chang)
-    print("3enter :",enter)
-    enter.pack()
-    print("1enter :",enter)
+    ent = tkinter.Entry(chang)
+    ent.pack()
+
+    def put():
+        a = ent.get()
+        print(a)
 
     btn = tkinter.Button(chang)
     btn.config(text='다음')
     btn.config(width = 5, height = 1)
-    print("2enter :",enter)
     btn.config(command = put)
 
     btn.place(x=300, y=200)
 
     chang.mainloop()
-
-def put():
-    a = enter.get()
-    print(a)
 
 def chang_thread():
 
@@ -94,7 +84,7 @@ now = int(time.time())
 
 chang_thread()
 
-while True:
+while 1:
 
     print("당신이 일어나고 싶은 년도를 입력하세요.")
     a = int(input())
@@ -116,14 +106,14 @@ while True:
 
     ddd = "%d-%d-%d %d:%d:%d"%(a,b,c,d,e,f)
     timestamp = int(time.mktime(datetime.strptime(ddd, '%Y-%m-%d %H:%M:%S').timetuple()))
-    print("in timestamp :",timestamp)
+
     if now >= timestamp:
         print("제대로 된 날짜와 시간을 입력하세요.")
         continue
 
     else:
         break
-print("out timestamp :",timestamp)
+
 tiiimer(timestamp)
 
     
